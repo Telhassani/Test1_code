@@ -19,15 +19,9 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import warnings
 warnings.simplefilter("ignore") #Ignore excel data validation error message
 
-# ---Containers
-image = st.container()
-header = st.container()
-metrics = st.container()
-data = st.container()
-overview = st.container()
-pmt_lot = st.container()
-budget_lot = st.container()
-bets =st.container()
+# Set the page layout to 'wide'
+st.set_page_config(layout='wide')
+
 
 #st.markdown(
 #    """
@@ -40,15 +34,31 @@ bets =st.container()
 #    unsafe_allow_html=True
 #)
 
-#background_color= '#F5F5F5'
+background_color= '#FFFFFF'
+
+with open('/Users/tariq/opt/miniconda3/envs/test1/Test1_Code/Test1_code/style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+# ---Containers
+image = st.container()
+header = st.container()
+metrics = st.container()
+data = st.container()
+overview = st.container()
+pmt_lot = st.container()
+budget_lot = st.container()
+bets =st.container()
+
 with image:
-    #Upload Morocco Mall Image
+    #---Upload Morocco Mall Image
     image = Image.open('/Users/tariq/opt/miniconda3/envs/test1/Test1_Code/Test1_code/MMM.png')
-    st.image(image, use_column_width= True) #display image to match column width
+    
+    #---display image to match column width
+    st.image(image, use_column_width= True) 
     
 
 with metrics:
-    st.markdown('### Metrics')
+    st.markdown('## Metrics')
 
     col1, col2, col3, col4, = st.columns(4)
     col1.metric(" GO Mall", "312.5M")
@@ -57,10 +67,13 @@ with metrics:
     col4.metric(" BETs Mall", "22.4M")
 
 
-# This container includes the header, the title and the pic of the project
+# This container includes the header and the title of the project
 with header:
     st.header('AKSAL PROPERTY')
     st.header('DASHBOARD: MOROCCCO MALL MARRAKECH')
+    st.markdown('''
+    ----
+    ''')
 
 
 # Extraction data function  
@@ -141,7 +154,7 @@ with overview:
     summary_treemap.data[0].textinfo = 'label+text+value'
     # Disactivate the hovermode
     summary_treemap.layout.hovermode = False
-    #summary_treemap.update_traces(root_color="#F5F5F5")
+    summary_treemap.update_traces(root_color="#FFFFFF")
     overview.write(summary_treemap)
     
 
@@ -164,7 +177,7 @@ with pmt_lot:
     
     # Disactivate the hovermode
     suivi_pmt_lot_hist.layout.hovermode = False
-    #summary_treemap.update_traces(root_color="#F5F5F5")
+    summary_treemap.update_traces(root_color="#FFFFFF")
     pmt_lot.write(suivi_pmt_lot_hist)
 
 
