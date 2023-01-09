@@ -1,10 +1,5 @@
-#from sys import path
-#from altair import Header
-#from matplotlib.pyplot import legend
-#import pandas as pd
-#import xlrd as xl
 # ---Modules
-#from lib2to3.pgen2.pgen import DFAState
+
 from janitor import xlsx_table
 from matplotlib.pyplot import hist # extracting 'Tables' from a worksheet using the 'pyjanitor' module
 import streamlit as st
@@ -13,6 +8,7 @@ from streamlit_option_menu import option_menu # using side bar menu in steamlit 
 import plotly.express as px
 from PIL import Image # To Upload an image 
 
+from streamlit_extras.dataframe_explorer import dataframe_explorer
 from st_aggrid import AgGrid, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 
@@ -99,6 +95,7 @@ with data:
 
     summary=RECAP_MMM_upload()
     
+
     #data.write(summary)
     st.info(len(summary))
     # Display table using the Aggrid module
