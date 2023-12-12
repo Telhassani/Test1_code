@@ -81,7 +81,7 @@ def RECAP_MMM_upload():
 # Extraction data function  
 @st.cache(allow_output_mutation=True)
 def RECAP_ETUDES_upload():
-    df = xlsx_table('/Users/tariq/Library/CloudStorage/OneDrive-Personal/WORK/MMM/TARIQ/Summary-PowerBI.xlsm', 'RECAP','RECAP_ETUDES')
+    df = xlsx_table('/Users/tariq/Library/CloudStorage/OneDrive-Personal/WORK/MMM/TARIQ/Summary-PowerBI.xlsm', 'RECAP','RECAP_ETUDES')conda activate myenvconda activate 
     return df
 
 # Function extracting the table from Excel
